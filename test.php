@@ -277,10 +277,56 @@ function sumrate_local($a, $b, $c)
 {
   $rate = 1.08; // ローカルスコープ
   return ($a + $b + $c) * $rate;
+  // 最後にセミコロンは不要
 }
 
 echo sumrate_global(100, 200, 300) + sumrate_global(300, 400, 500) . PHP_EOL; // 1944
 echo sumrate_local(100, 200, 300) + sumrate_local(300, 400, 500) . PHP_EOL; // 1944
+
+
+// 関数を値に代入する
+$sumfunc = function ($a, $b, $c) { // 無名関数（クロージャー）
+  return $a + $b + $c;
+  // 関数を代入すると最後にセミコロン必要
+};
+
+echo $sum(100, 300, 500) . PHP_EOL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
