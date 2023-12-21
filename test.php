@@ -181,7 +181,20 @@ for ($i = 1; $i <= 5; $i++) {
   }
 
 
+// while文の使い方
+$hp1 = 100;
 
+while ($hp1 > 0) {
+  echo "Your HP: $hp1" . PHP_EOL;
+  $hp1 -= 15;
+}
+
+$hp = -50;
+// do-while文の使い方
+do {
+  echo "Your HP: $hp" . PHP_EOL;
+  $hp -= 15;
+} while ($hp > 0);
 
 
 
