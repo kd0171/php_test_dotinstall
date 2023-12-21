@@ -340,11 +340,31 @@ function getAward(?int $score): ?string
 echo getAward(150) . PHP_EOL;
 echo getAward(40) . PHP_EOL;
 
+//配列
+$scores1 = [
+  90,
+  40,
+  100,
+];
 
+echo $scores1[1] . PHP_EOL; //40
+$scores1[1] = 60;  //更新
+echo $scores1[1] . PHP_EOL; //60
 
+//キーと値を定義した配列
+$scores = [
+  'first'  => 90, 
+  'second' => 40, 
+  'third'  => 100,
+];
+//配列の中身の型を表示
+echo "配列の型". PHP_EOL;
+var_dump($scores);
+//配列の中身を表示
+echo "配列の中身". PHP_EOL;
+print_r($scores);
 
-
-
+echo $scores['third'] . PHP_EOL;
 
 
 
