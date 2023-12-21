@@ -1,1 +1,3 @@
-array_replace_recursive
+<?php
+
+echo 'こんにちは'.PHP_EOL;
