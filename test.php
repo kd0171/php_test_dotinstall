@@ -34,17 +34,26 @@ echo "It's me.\tHello $name".PHP_EOL;
     // EOT;
     // echo $text;
 
-// ダブルクオーテーションまたは終端記号のみだと変数を代入可能になる
+// ダブルクオーテーションまたは終端記号のみだと変数を代入可能になる（heredoc、シングルクオーテーションはnowdoc）
     // $text = <<<"EOT"
 $text = <<<EOT
 hello!
- this is $name
+    this is $name
 Goodbye!
 EOT;
 
 echo $text;
 
-
+//演算
+echo 10 + 3 . PHP_EOL; // 13
+echo 10 - 3 . PHP_EOL; // 7
+echo 10 * 3 . PHP_EOL; // 30
+echo 10 / 3 . PHP_EOL; // 3.3333...
+echo 10 % 3 . PHP_EOL; // 1
+//べき乗
+echo 10 ** 3 . PHP_EOL; // 1000
+//文字列の数字への自動変換
+echo 2 + '3' . PHP_EOL; // 5
 
 
 //終了タグ　PHP のファイルには HTML も書けますが、 PHP のコードしか書かない場合は閉じタグを書くべきではないというルールに
