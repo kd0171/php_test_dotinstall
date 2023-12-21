@@ -89,8 +89,15 @@ $b = (string)1.3;
 var_dump($a);
 var_dump($b);
 
-
-
+// ifでの分岐
+$score=85;
+if($score>=80){
+    echo "Great!".PHP_EOL;
+} elseif ($score >= 60) {
+    echo 'Good!' . PHP_EOL;
+} else {
+    echo 'OK!' . PHP_EOL;
+}
 
 
 
