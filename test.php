@@ -153,12 +153,25 @@ switch ($signal) {
 
 
 
-
-
-
-
-
-
+//switch文
+  switch ($signal) {
+    case 'red':
+      echo 'Stop!' . PHP_EOL;
+//break;を書き忘れるとyellowの処理も行われてしまう
+      break;
+    case 'yellow':
+      echo 'Caution!' . PHP_EOL;
+      break;
+//switch文でAもしくはBとしたい場合はcaseを複数並べる
+    case 'blue':
+    case 'green':
+      echo 'Go!' . PHP_EOL;
+      break;
+//switch文で何も当てはまらない場合の処理
+    default:
+      echo 'Wrong signal!!' . PHP_EOL;
+      break;
+  }
 
 
 
