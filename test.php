@@ -185,19 +185,33 @@ for ($i = 1; $i <= 5; $i++) {
 $hp1 = 100;
 
 while ($hp1 > 0) {
-  echo "Your HP: $hp1" . PHP_EOL;
+  echo "Your HP1: $hp1" . PHP_EOL;
   $hp1 -= 15;
 }
 
 $hp = -50;
-// do-while文の使い方
+// do-while文の使い方：一回必ず実行してその後
 do {
   echo "Your HP: $hp" . PHP_EOL;
   $hp -= 15;
 } while ($hp > 0);
 
+//continue, breakの使い方
+for ($i = 1; $i <= 10; $i++) {
+  //continueはある条件を満たしたときのfor文の処理のスキップ
+  if ($i === 4) {
+    continue;
+  }
+  echo $i . PHP_EOL;
+}
 
-
+for ($i = 1; $i <= 10; $i++) {
+  //breakはある条件を満たしたときのfor文の処理の残りの処理全てのスキップ（＝処理の中断）
+  if ($i === 4) {
+    break;
+  }
+  echo $i . PHP_EOL;
+}
 
 
 
