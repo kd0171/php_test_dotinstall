@@ -1,5 +1,4 @@
-
-<?php
+<?php //declare(strict_types=1);
 //開始タグ
 
 
@@ -315,6 +314,21 @@ echo sum_conditonal1(100, 300, 500) . PHP_EOL; // 900
 echo sum_conditonal2(-1000, 300, 500) . PHP_EOL; // 0
 
 
+//PHPでは、'40'は自動で40に変換されてしまうが、そういった自動変換を防ぐためにdeclare文を用いる
+//declare文は、スクリプトの実行に関する設定を行うためのもので、通常はスクリプトの一行目に配置
+  // declare(strict_types=1)
+
+//引数の型を指定
+  //変数の前に型の指定をする（しなくてもそのまま出力してしまう）
+  //returnがない場合は:voidをつける
+function showInfo2(string $name, int $score): void
+{
+  echo $name . ': ' . $score . PHP_EOL;
+}
+
+showInfo2('taguchi', 40);
+// showInfo('taguchi', 'dotinstall');
+// showInfo('taguchi', '4');
 
 
 
