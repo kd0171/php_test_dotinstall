@@ -405,7 +405,31 @@ echo $scores[5][2] . PHP_EOL;
 print_r($scores);
 
 
+//可変長引数
+//渡された全ての引数を配列にして$numbersに入れる
 
+function sum_simple($a, $b, $c)
+{
+  return $a + $b + $c;
+}
+
+echo sum_simple(1, 3, 5) . PHP_EOL;
+//引数の個数が決まっているので、最後の引数は何も処理されない（＝足されない）
+  //エラーが出ないことに注意
+echo sum_simple(4, 2, 5, 1) . PHP_EOL;
+
+
+function sum_array1(...$numbers)
+{
+  $total = 0;
+  foreach ($numbers as $number) {
+    $total += $number;
+  }
+  return $total;
+}
+
+echo sum_array1(1, 3, 5) . PHP_EOL;
+echo sum_array1(4, 2, 5, 1) . PHP_EOL;
 
 
 
