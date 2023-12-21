@@ -377,8 +377,32 @@ foreach ($scores as $key => $score) {
 }
 
 
+$moreScores = [
+  55,
+  72,
+  'perfect',
+  [90, 42, 88],
+];
 
+//別の配列を配列に入れたい場合（値は入らない）
+  // $scores = [
+  //   90,
+  //   40,
+  //   $moreScores,
+  //   100,
+  // ];
 
+//別の配列の中の値を配列に入れたい場合（配列$morescoresの前に...を書く）
+$scores = [
+  90,
+  40,
+  ...$moreScores,
+  100,
+];
+
+//配列の中の５番目は[90, 42, 88]であるため、その配列の中のインデックスを更に指定
+echo $scores[5][2] . PHP_EOL;
+print_r($scores);
 
 
 
