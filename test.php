@@ -55,6 +55,28 @@ echo 10 ** 3 . PHP_EOL; // 1000
 //文字列の数字への自動変換
 echo 2 + '3' . PHP_EOL; // 5
 
+$price = 500;
+// 同じ変数への足し算
+$price = $price + 100;
+$price += 100;
+// １を足し引き
+$price ++;
+$price --;
+echo $price.PHP_EOL;
+
+// 定数
+    // 定数は慣習的に大文字になるのと、あと変数と違って $ は付かない
+define('MYFAMILYNAME','KIDO');
+echo MYFAMILYNAME.PHP_EOL;
+
+const MYFIRSTNAME = 'KENTA';
+echo MYFIRSTNAME.PHP_EOL;
+
+
+
+
+
+
 
 //終了タグ　PHP のファイルには HTML も書けますが、 PHP のコードしか書かない場合は閉じタグを書くべきではないというルールに
 ?>
