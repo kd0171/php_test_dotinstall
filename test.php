@@ -6,7 +6,7 @@
 // コメントアウト　行頭：　//  #  複数行： /* */    ショートカット：ctrl+/
 
 // 変数の使い方
-$name = 'KENTA';
+$name = 'taguchi';
 
 //PHP_EOL; というキーワードを使ってあげれば、環境に応じて適切に改行
 // echo 'Hello Kenta'.PHP_EOL;
@@ -99,19 +99,57 @@ if($score>=80){
     echo 'OK!' . PHP_EOL;
 }
 
+//if文の条件に値を入れても真偽判定
+    //falseとなるもの：false,+0,-0,'0','',null,[]
+    //trueとなるもの：0でない数字、空でない文字列、空でない配列
+$x = +0;
+if($x){
+    echo "Great!".PHP_EOL;
+} elseif ($score >= 60) {
+    echo 'Good!' . PHP_EOL;
+}
+
+//文字列のイコールは===
+if ($score >= 50) {
+  if ($name === 'taguchi') {
+    echo 'Good Job!' . PHP_EOL;
+  }
+}
+
+// && and なおかつ
+// || or もしくは
+// ! 〜ではない
+
+if ($score >= 50 && $name === 'taguchi') {
+    echo 'Good Job!' . PHP_EOL;
+  }
 
 
+// $signal = 'red';
+$signal = 'blue';
+
+//if文で複数の文字列を判別する
+if ($signal === 'red') {
+  echo 'Stop!' . PHP_EOL;
+} elseif ($signal === 'yellow') {
+  echo 'Caution!' . PHP_EOL;
+} elseif ($signal === 'blue'){
+  echo 'Go!' . PHP_EOL;
+}
 
 
-
-
-
-
-
-
-
-
-
+//if文で複数の文字列を判別する場合switch文
+switch ($signal) {
+    case 'red':
+      echo 'Stop!' . PHP_EOL;
+      break;
+    case 'yellow':
+      echo 'Caution!' . PHP_EOL;
+      break;
+    case 'blue':
+      echo 'Go!' . PHP_EOL;
+      break;
+  }
 
 
 
