@@ -330,8 +330,15 @@ showInfo2('taguchi', 40);
 // showInfo('taguchi', 'dotinstall');
 // showInfo('taguchi', '4');
 
+//型の前に?マークを付けるとnullかその型
+function getAward(?int $score): ?string
+{
+  //100点以上なら'Gold Medal'、それ以外ならnull
+  return $score >= 100 ? 'Gold Medal' : null;
+}
 
-
+echo getAward(150) . PHP_EOL;
+echo getAward(40) . PHP_EOL;
 
 
 
