@@ -366,7 +366,15 @@ print_r($scores);
 
 echo $scores['third'] . PHP_EOL;
 
+//$scoresという既に定義された配列から一つずつ$scoreに代入していく
+foreach ($scores1 as $score) {
+  echo $score . PHP_EOL;
+}
 
+//foreachはキーを用いた配列にも使用可能
+foreach ($scores as $key => $score) {
+  echo $key . ' - ' . $score . PHP_EOL;
+}
 
 
 
