@@ -290,11 +290,29 @@ $sumfunc = function ($a, $b, $c) { // 無名関数（クロージャー）
   // 関数を代入すると最後にセミコロン必要
 };
 
-echo $sum(100, 300, 500) . PHP_EOL;
+echo $sumfunc(100, 300, 500) . PHP_EOL;
 
 
-
-
+//条件演算子
+function sum_conditonal1($a, $b, $c) 
+{
+  $total = $a + $b + $c;
+  if ($total < 0) {
+    return 0;
+  } else {
+    return $total;
+  }
+}
+// 条件演算子を用いたreturnの書き方
+function sum_conditonal2($a, $b, $c) 
+{
+  $total = $a + $b + $c;
+  //?の前の条件「$total < 0」がtrueならば、?から:までreturnで返す
+  //falseの場合は、:の後の値を返す
+  return $total < 0 ? 0 : $total;
+}
+echo sum_conditonal1(100, 300, 500) . PHP_EOL; // 900
+echo sum_conditonal2(-1000, 300, 500) . PHP_EOL; // 0
 
 
 
