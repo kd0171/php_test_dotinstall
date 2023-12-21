@@ -247,13 +247,40 @@ echo 'Steve is great!' . PHP_EOL;
 echo 'Bob is great!' . PHP_EOL;
 showAds('Footer Ad');
 
+// 戻り値を含む関数
+function sum($a, $b, $c)
+{
+  echo $a + $b + $c . PHP_EOL;
+  return $a + $b + $c;
+  // returnで処理が終わるのでその後の処理は行われない
+  echo 'ここは表示されません' . PHP_EOL;
+}
 
+sum(100, 200, 300); // 600
+sum(300, 400, 500); // 1200
 
+echo sum(100, 200, 300) + sum(300, 400, 500) . PHP_EOL; // 1800
 
+// グローバルスコープ
+//関数の外で定義された変数は基本的には使えない
+$rate = 1.1;
+function sumrate_global($a, $b, $c)
+{
+  // globalとして定義すれば関数外の変数も使えるようになる
+  // しかし、コードが長いとどこで定義されたのかもわかりにくくなるので、基本「引数」または「ローカルで定義」
+  global $rate;
+  return ($a + $b + $c) * $rate;
+}
 
+$rate = 1.1;
+function sumrate_local($a, $b, $c)
+{
+  $rate = 1.08; // ローカルスコープ
+  return ($a + $b + $c) * $rate;
+}
 
-
-
+echo sumrate_global(100, 200, 300) + sumrate_global(300, 400, 500) . PHP_EOL; // 1944
+echo sumrate_local(100, 200, 300) + sumrate_local(300, 400, 500) . PHP_EOL; // 1944
 
 
 
