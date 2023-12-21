@@ -220,7 +220,7 @@ function showAd()
   echo '--- Ad ---' . PHP_EOL;
   echo '----------' . PHP_EOL;
 }
-
+//関数の後の();を忘れない
 showAd();
 echo 'Tom is great!' . PHP_EOL;
 echo 'Bob is great!' . PHP_EOL;
@@ -229,7 +229,23 @@ echo 'Steve is great!' . PHP_EOL;
 echo 'Bob is great!' . PHP_EOL;
 showAd();
 
+//引数を渡し忘れた場合：='Ad'はデフォルト値
+function showAds($message = 'Ad')  // 仮引数
+{
+  echo '----------' . PHP_EOL;
+  // 文字列の連結はピリオド
+  echo '--- ' . $message . ' ---' . PHP_EOL;
+  echo '----------' . PHP_EOL;
+}
 
+showAds('Header Ad'); // 実引数
+echo 'Tom is great!' . PHP_EOL;
+echo 'Bob is great!' . PHP_EOL;
+showAds('Ad');
+showAds();
+echo 'Steve is great!' . PHP_EOL;
+echo 'Bob is great!' . PHP_EOL;
+showAds('Footer Ad');
 
 
 
