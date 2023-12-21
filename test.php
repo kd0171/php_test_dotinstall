@@ -432,8 +432,28 @@ echo sum_array1(1, 3, 5) . PHP_EOL;
 echo sum_array1(4, 2, 5, 1) . PHP_EOL;
 
 
+//配列を返り値として用いる
+function getStats(...$numbers)
+{
+  $total = 0;
+  foreach ($numbers as $number) {
+    $total += $number;
+  }
+  // count()は配列の要素数を数える関数
+  return [$total, $total / count($numbers)];
+}
 
+print_r(getStats(1, 3, 5));
 
+// 自動的に複数の変数の宣言とその変数への返り値の代入ができる
+[$sum, $average] = getStats(1, 3, 5); 
+  /* これは以下と同じ　
+  list($sum, $average) = getStats(1, 3, 5);
+  */
+
+// 配列の中の変数に代入された値が表示
+echo $sum . PHP_EOL;
+echo $average . PHP_EOL;
 
 
 
