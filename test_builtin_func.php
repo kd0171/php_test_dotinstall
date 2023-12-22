@@ -50,7 +50,28 @@ echo $input . PHP_EOL;
 
 
 
+// 固定長データ
+// substr(文字列,位置,桁数)：文字列のこの位置からこの桁数分切り出す
+// substr_replace(文字列,置換文字列,位置,桁数)：文字列のこの位置からこの桁数分置換する
+$input = '20200320Item-A  1200';
 
+$date = substr($input, 0, 8);
+echo 'date: '.$date . PHP_EOL;
+
+$product = substr($input, 8, 8);
+echo 'product: '.$product . PHP_EOL;
+
+
+
+//8文字目から8文字分置換する：$input の一部を 'Item-B ' に変える
+$input = substr_replace($input, 'Item-B  ', 8, 8);
+echo 'input: '.$input . PHP_EOL;
+
+// $amount = substr($input, 16, 4);
+// 最後までの場合は桁数の部分は省略可能
+$amount = substr($input, 16);
+// 3 桁ごとにカンマを入れたい場合
+echo 'amount: '.number_format($amount) . PHP_EOL;
 
 
 
