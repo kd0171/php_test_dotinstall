@@ -74,9 +74,20 @@ $amount = substr($input, 16);
 echo 'amount: '.number_format($amount) . PHP_EOL;
 
 
+// 文字列の検索、置換
 
+$input = 'Call us at 03-3001-1256 or 03-3015-3222';
+$pattern = '/\d{2}-\d{4}-\d{4}/';
+// preg_match() は最初に見つかった結果だけ
+preg_match($pattern, $input, $matches);
+print_r($matches);
+// 全ての見つかった結果を格納したい場合
+preg_match_all($pattern, $input, $matches);
+print_r($matches);
 
-
+// preg_replace(文字列の中の対象となるパターン,置換後の文字列, 対象となる文字列);
+$input = preg_replace($pattern, '**-****-****', $input);
+echo $input . PHP_EOL;
 
 
 
