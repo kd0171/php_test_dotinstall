@@ -187,7 +187,21 @@ print_r($scores3);
 
 
 
+// 配列のソート、シャッフル、ランダムに要素を取り出す
+$scores = [40, 50, 20, 30];
+// 値を小さい順に並び替え
+sort($scores);
+print_r($scores);
 
+// 値を大きい順に並び替え
+rsort($scores);
+print_r($scores);
 
+// 実行するたびに値をシャッフル
+shuffle($scores);
+print_r($scores);
 
-
+// ランダムに要素を取得。元配列は無変更新しい配列をki-形式で返す
+$picked = array_rand($scores, 2);
+echo $scores[$picked[0]] . PHP_EOL;
+echo $scores[$picked[1]] . PHP_EOL;
