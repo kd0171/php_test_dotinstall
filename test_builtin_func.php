@@ -298,6 +298,32 @@ $evenNumbers = array_filter(
 print_r($evenNumbers);
 
 
+// 配列のキーや値を操作
+$scores = [
+    'taguchi' => 80,
+    'hayashi' => 70,
+    'kikuchi' => 60,
+  ];
+  
+// キーを取り出す
+  $keys = array_keys($scores);
+  print_r($keys);
+//   値を取り出す
+  $values = array_values(($scores));
+  print_r($values);
+  
+//   特定のキーがあるかどうか
+  if (array_key_exists('taguchi', $scores) === true) {
+    echo 'taguchi is here!' . PHP_EOL;
+  }
+//   値が配列の中にあるかどうか
+  if (in_array(80, $scores) === true) {
+    echo '80 is here!' . PHP_EOL;
+  }
+
+//   値を検索して、対応するキーを返す
+  echo array_search(70, $scores) . PHP_EOL;
+
 
 
 
