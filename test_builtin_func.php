@@ -278,8 +278,24 @@ print_r($newPrices);
 
 
 
+// 配列内をフィルタリングして、新しい配列を返す
+    // 復習：1 から 10 までの値を使って配列を作る
+$numbers = range(1, 10);
 
+$evenNumbers = array_filter(
+  $numbers,
+//  function ($n) {
+        //    if ($n % 2 === 0) {
+        //      return true;
+        //    } else {
+        //      return false;
+        //    }
+//    return $n % 2 === 0;  //trueの時にtrueを返し、falseの時にfalseを返すだけなので、returnだけでも大丈夫
+//  }
+  fn($n) => $n % 2 === 0
+);
 
+print_r($evenNumbers);
 
 
 
