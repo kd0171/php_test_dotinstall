@@ -91,8 +91,15 @@ echo $input . PHP_EOL;
 
 
 
+// 文字列と配列を相互に変換
+$d = [2020, 11, 15];
+//echo "$d[0]-$d[1]-$d[2]" . PHP_EOL;
+// implode(区切り文字, 文字列)
+echo implode('-', $d) . PHP_EOL;
 
-
+$t = '17:32:45';
+// explode(区切り文字, 文字列)
+print_r(explode(':', $t));
 
 
 
