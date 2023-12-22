@@ -474,7 +474,23 @@ fclose($fp);
 
 
 
-  echo "：　". PHP_EOL;
+  echo "ファイルの内容をまとめて操作：　". PHP_EOL;
+$contents = "taro\njiro\nsaburo\n";
+// file_put_contents(ファイル名,書き込む内容)：書き込み
+file_put_contents('names.txt', $contents);
+
+// file_put_contents(ファイル名)：読み込み
+$contents = file_get_contents('names.txt');
+echo $contents;
+
+// 1 行ずつ配列の要素として読み込む
+// $lines = file('names.txt');
+
+// 1 行ずつ配列の要素として読み込み、かつ改行を削除
+$lines = file('names.txt', FILE_IGNORE_NEW_LINES);
+var_dump($lines);
+
+
   echo "：　". PHP_EOL;
   echo "：　". PHP_EOL;
   echo "：　". PHP_EOL;
