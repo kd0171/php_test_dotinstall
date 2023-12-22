@@ -431,10 +431,17 @@ $data = [
   print_r($data);
 
 
+  echo "ファイルを開いて文字列を書き込む：　". PHP_EOL;
+//   ファイルポインタを介してファイル操作を行う
+// 　書き込みモードにするには write の w
+  $fp = fopen('names.txt', 'w');
+//   ファイルポインタと書き込みたい値を渡す
+//   UNIX 環境での改行は \n で表現
+  fwrite($fp, "taro\n");
+//   書き込みを終了するには fclose() 関数にファイルポインタを渡す
+  fclose($fp);
 
-
-  echo "：　". PHP_EOL;
-
+//   cat で中身を確かめられる
 
   echo "：　". PHP_EOL;
 
