@@ -262,7 +262,18 @@ $common = array_intersect($a, $b); //[4,8]　Array ( [1] => 4 [2] => 8 )　左�
 print_r($common);
 
 
+// 配列のすべての要素に関数を適用して新しい配列を返す
+// array_map(関数,配列)
+echo "配列全体への関数の適用：　". PHP_EOL;
+$prices = [100, 200, 300];
 
+$newPrices = array_map(
+  // function ($n) { return $n * 1.1; },　無名関数
+  fn($n) => $n * 1.1,   //アロー関数
+  $prices
+);
+
+print_r($newPrices);
 
 
 
