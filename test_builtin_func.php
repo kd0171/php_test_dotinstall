@@ -33,3 +33,54 @@ echo strpos($input, '_') . PHP_EOL;
 // 文字列の置換
 $input = str_replace('_', '-', $input);
 echo $input . PHP_EOL;
+
+//日本語（マルチバイト文字）を使う場合
+$input = ' こんにちは  ';
+$input = trim($input);
+
+// マルチバイト用のカウント
+echo mb_strlen($input) . PHP_EOL; // 5
+
+// マルチバイト用の検索
+echo mb_strpos($input, 'に') . PHP_EOL; // 2
+
+// UTF-8であれば置換可能
+$input = str_replace('にち', 'ばん', $input); // こんばんは
+echo $input . PHP_EOL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
