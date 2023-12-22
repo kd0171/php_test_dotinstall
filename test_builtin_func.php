@@ -18,4 +18,18 @@ echo $info . PHP_EOL;
 // %-15s：左詰めにするにはマイナス記号、%010.2f：余った桁を 0 で埋めたいなら0 
 printf("[%-15s][%010.2f]" . PHP_EOL, $name, $score);
 
+// 文字列の関数
+$input = ' dot_taguchi  ';
 
+// 前後の空白、改行を除去
+$input = trim($input);
+
+// 文字数を数える
+echo strlen($input) . PHP_EOL;
+
+// 文字列の検索、見つかった位置を表示（０から開始）
+echo strpos($input, '_') . PHP_EOL;
+
+// 文字列の置換
+$input = str_replace('_', '-', $input);
+echo $input . PHP_EOL;
