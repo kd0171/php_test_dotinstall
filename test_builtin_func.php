@@ -148,10 +148,19 @@ array_pop($scores);
 print_r($scores);
 
 
+// 配列の一部を切り出す
+// array_slice(配列,インデックス,個数)
+$scores = [30, 40, 50, 60, 70];
+$partial1 = array_slice($scores, 2, 3);
+// 最後までなら引数省略可能
+$partial2 = array_slice($scores, 2);
+// 位置の指定はマイナスの値で末尾から数えて（インデックスではなく個数）
+$partial3 = array_slice($scores, -2);
 
-
-
-
+print_r($scores);
+print_r($partial1);
+print_r($partial2);
+print_r($partial3);
 
 
 
