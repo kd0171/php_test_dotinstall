@@ -95,13 +95,35 @@ echo $input . PHP_EOL;
 $d = [2020, 11, 15];
 //echo "$d[0]-$d[1]-$d[2]" . PHP_EOL;
 // implode(区切り文字, 文字列)
-echo implode('-', $d) . PHP_EOL;
+echo "implode: ".implode('-', $d) . PHP_EOL;
 
 $t = '17:32:45';
 // explode(区切り文字, 文字列)
 print_r(explode(':', $t));
 
 
+
+// 数学関連の関数
+$n = 5.6283;
+
+// 小数点以下を切り上げる
+echo ceil($n) . PHP_EOL; // 6
+// 小数点以下を切り捨てる
+echo floor($n) . PHP_EOL; // 5
+// 四捨五入して整数
+echo round($n) . PHP_EOL; // 6
+// 小数点以下二桁になるように四捨五入
+echo round($n, 2) . PHP_EOL; // 5.63
+// 乱数を作る：1 以上 6 以下のランダムな整数値
+echo mt_rand(1, 6) . PHP_EOL;
+// 最大値を求める
+echo max(3, 9, 4) .PHP_EOL;
+// 最小値を求める
+echo min(3, 9, 4) .PHP_EOL;
+// 円周率
+echo M_PI . PHP_EOL;
+// ２の平方根
+echo M_SQRT2 . PHP_EOL;
 
 
 
