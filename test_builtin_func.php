@@ -491,7 +491,20 @@ $lines = file('names.txt', FILE_IGNORE_NEW_LINES);
 var_dump($lines);
 
 
-  echo "：　". PHP_EOL;
+  echo "ディレクトリの操作：　". PHP_EOL;
+// ターミナルで mkdir dataでdataディレクトリを作る
+
+file_put_contents('data/taro.txt', "taro\n");
+file_put_contents('data/jiro.txt', "jiro\n");
+
+$dp = opendir('data');
+while (($item = readdir($dp)) !== false) {
+  if ($item === '.' || $item === '..') {
+    continue;
+  }
+  echo $item . PHP_EOL;
+}
+
   echo "：　". PHP_EOL;
   echo "：　". PHP_EOL;
 
