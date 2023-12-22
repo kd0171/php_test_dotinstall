@@ -212,7 +212,7 @@ echo $scores[$picked[1]] . PHP_EOL;
 
 
 // 配列の値を集計
-// 0 のインデックスから 5 個分を 10 の値で埋める
+// 0 のインデックスから 5 個分を 10 の値で埋める（１０が５個並んだ配列）
 $scores = array_fill(0, 5, 10);
 print_r($scores);
 
@@ -234,7 +234,32 @@ echo min($scores) . PHP_EOL;
 echo array_sum($scores) / count($scores) . PHP_EOL;
 
 
+// 配列同士の演算
+echo "配列同士の演算：　". PHP_EOL;
+$a = [3, 4, 8];
+$b = [4, 8, 12];
 
+// array_merge(配列A,配列B)：Aの後にBに連結
+$merged1 = array_merge($a, $b); //[3,4,8,4,8,12]
+$merged2 = [...$a, ...$b];
+print_r($merged1);
+print_r($merged2);
+
+
+// array_unique(配列A,配列B)：重複した値を取り除く関数
+$uniques = array_unique($merged1); //[3,4,8,12]
+print_r($uniques);
+
+
+// array_diff(配列A,配列B)):AからBにある要素を引く
+$diff1 = array_diff($a, $b); //[3]　Array ( [0] => 3 )　左側の配列のインデックスは継承されることに注意
+print_r($diff1); // [3]
+$diff2 = array_diff($b, $a); //[12]　Array ( [2] => 12 )　左側の配列のインデックスは継承されることに注意
+print_r($diff2); // [12]
+
+// array_intersect(配列A,配列B))：共通の要素を取り出す
+$common = array_intersect($a, $b); //[4,8]　Array ( [1] => 4 [2] => 8 )　左側の配列のインデックスは継承されることに注意
+print_r($common);
 
 
 
