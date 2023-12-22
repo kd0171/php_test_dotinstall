@@ -514,11 +514,30 @@ while (($item = readdir($dp)) !== false) {
     echo basename($item) . PHP_EOL; // jiro.txt 
   }
 
+  echo "ファイルの状態を確認：　". PHP_EOL;
+// if (file_exists('data/saburo.txt') === false) {
+    if (!file_exists('data/saburo.txt')) {
+        echo 'Saburo not here!' . PHP_EOL;
+        // チェックした結果、そこで処理を止めたいという場合
+        exit;
+      }
+      //file_exists()：ファイルが存在するかどうか
+      if (file_exists('data') === true) {
+        echo 'data exists!' . PHP_EOL;
+      }
+      //is_writeable()：ファイルが書き込めるかどうか
+      if (is_writeable('data/taro.txt') === true) {
+        echo 'taro is writable!' . PHP_EOL;
+      }
+      //is_writeable()：ファイルが読み込めるかどうか
+      if (is_readable('data/taro.txt') === true) {
+        echo 'taro is readable!' . PHP_EOL;
+      }
 
 
 
 
-  echo "：　". PHP_EOL;
+
 
   echo "：　". PHP_EOL;
   echo "：　". PHP_EOL;
