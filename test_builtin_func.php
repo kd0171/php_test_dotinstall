@@ -443,7 +443,14 @@ $data = [
 
 //   cat で中身を確かめられる
 
-  echo "：　". PHP_EOL;
+  echo "テキストに追記：　". PHP_EOL;
+//   fopen()で開いたファイルに文字列を追記していく方法を見ていきます。
+//   書き込みモードは append を意味する a
+$fp = fopen('names.txt', 'a');
+
+fwrite($fp, "jiro\n");
+fwrite($fp, "saburo\n");
+fclose($fp);
 
 
   echo "：　". PHP_EOL;
