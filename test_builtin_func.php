@@ -519,7 +519,7 @@ while (($item = readdir($dp)) !== false) {
     if (!file_exists('data/saburo.txt')) {
         echo 'Saburo not here!' . PHP_EOL;
         // チェックした結果、そこで処理を止めたいという場合
-        exit;
+        // exit;
       }
       //file_exists()：ファイルが存在するかどうか
       if (file_exists('data') === true) {
@@ -534,11 +534,22 @@ while (($item = readdir($dp)) !== false) {
         echo 'taro is readable!' . PHP_EOL;
       }
 
+  echo "日付の計算：　". PHP_EOL;
+//   date('Y-m-d')：年-月-日
+//   date('H:i:s')：時：分：秒
+//   date('l')：英語の曜日
+//   date('W')：第何週
 
+// 現在の UNIX タイムスタンプを取得
+echo time() . PHP_EOL; //1703269147などの数値が返ってくる
 
+echo date('Y-m-d l', time()) . PHP_EOL;
+echo date('Y-m-d l') . PHP_EOL;
 
+echo date('Y-m-d l', mktime(0, 0, 0, 5, 1, 2020)) . PHP_EOL; // 時、分、秒、月、日、年と指定
 
+// strtotime()：32bit のマシンでは 2038 年以降にうまく動作しない
+echo date('Y-m-d l', strtotime('2020-05-07')) . PHP_EOL;
+echo date('Y-m-d l', strtotime('2020-05-07 +1 day')) . PHP_EOL;
 
-  echo "：　". PHP_EOL;
-  echo "：　". PHP_EOL;
-  echo "：　". PHP_EOL;
+// DateTimeクラスを使うことが多い
