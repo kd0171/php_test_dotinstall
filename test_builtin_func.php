@@ -396,17 +396,41 @@ $data = [
 
 
 
+  echo "ある配列の中の複数の配列を同時にソート：　". PHP_EOL;
+//   array_multisort(配列A,配列B,配列C)：ソート後に別の配列で同じ値を含むものの中でソートする
+
+$data = [
+    ['name' => 'taguchi', 'score' => 80],
+    ['name' => 'kikuchi', 'score' => 60],
+    ['name' => 'hayashi', 'score' => 70],
+    ['name' => 'tamachi', 'score' => 60],
+  ];
+  
+//   データからscoreのカラムの値だけを取る
+  $scores = array_column($data, 'score'); 
+//   データからnameのカラムの値だけを取る
+  $names = array_column($data, 'name');
+  
+  print_r($scores);
+  print_r($names);
+  
+//   デフォルト：小さい順、アルファベット順
+  array_multisort(
+    $scores,
+    $names,
+    $data
+  );
+  print_r($data);
+
+// 指定の順番を追加（並べ方とデータ型）
+  array_multisort(
+    $scores, SORT_DESC, SORT_NUMERIC, // 大きい順で数値
+    $names, SORT_DESC, SORT_STRING, // アルファベットの逆順で文字列
+    $data
+  );
+  print_r($data);
 
 
-
-
-
-
-
-
-
-
-  echo "：　". PHP_EOL;
 
 
   echo "：　". PHP_EOL;
