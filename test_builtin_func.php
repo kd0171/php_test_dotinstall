@@ -163,8 +163,20 @@ print_r($partial2);
 print_r($partial3);
 
 
+// 配列の要素を削除、置換
+// array_splice(配列,インデックス,個数)
+$scores = [30, 40, 50, 60, 70, 80];
+// インデックス２から３つ削除
+$partial1 = array_splice($scores, 2, 3);
+// インデックス２から３つ削除し、同じ位置に100を入れる
+$partial2 = array_splice($scores, 2, 3, 100);
+// 複数の要素を入れたい場合は配列の形
+$partial3 = array_splice($scores, 2, 0, [100, 101]);
 
-
+print_r($scores);
+print_r($partial1);
+print_r($partial2);
+print_r($partial3);
 
 
 
