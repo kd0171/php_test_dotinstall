@@ -208,3 +208,54 @@ $picked = array_rand($scores, 2);
 print_r($picked);
 echo $scores[$picked[0]] . PHP_EOL;
 echo $scores[$picked[1]] . PHP_EOL;
+
+
+
+// 配列の値を集計
+// 0 のインデックスから 5 個分を 10 の値で埋める
+$scores = array_fill(0, 5, 10);
+print_r($scores);
+
+// 1 から 10 までの値を使って配列を作る
+$scores = range(1, 10);
+print_r($scores);
+
+// 1 から 10 までだけど 2 刻み
+$scores = range(1, 10, 2);
+print_r($scores);
+
+// 配列の要素の合計
+echo array_sum($scores) . PHP_EOL;
+
+echo max($scores) . PHP_EOL;
+echo min($scores) . PHP_EOL;
+
+// 要素数：count()
+echo array_sum($scores) / count($scores) . PHP_EOL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
