@@ -519,7 +519,7 @@ while (($item = readdir($dp)) !== false) {
     if (!file_exists('data/saburo.txt')) {
         echo 'Saburo not here!' . PHP_EOL;
         // チェックした結果、そこで処理を止めたいという場合
-        // exit;
+        exit;
       }
       //file_exists()：ファイルが存在するかどうか
       if (file_exists('data') === true) {
