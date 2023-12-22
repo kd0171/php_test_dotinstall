@@ -451,9 +451,28 @@ $fp = fopen('names.txt', 'a');
 fwrite($fp, "jiro\n");
 fwrite($fp, "saburo\n");
 fclose($fp);
+// ファイルはプログラムの実行が終わると自動的にクローズされるので、このあとにファイル操作がなければ、実は書かなくても OK 
 
 
-  echo "：　". PHP_EOL;
+
+  echo "ファイルから読み込む処理：　". PHP_EOL;
+//   書き込みモードは read を意味する r
+$fp = fopen('names.txt', 'r');
+// ファイルサイズを調べるには filesize 関数を使う
+// fread(ファイルポインター, ファイルサイズ)
+$contents = fread($fp, filesize('names.txt'));
+fclose($fp);
+echo $contents;
+
+
+$fp = fopen('names.txt', 'r');
+// while() を使って読み込むものがなくならない限りを表す：!== false
+while (($line = fgets($fp)) !== false) {
+  echo $line;
+}
+fclose($fp);
+
+
 
   echo "：　". PHP_EOL;
   echo "：　". PHP_EOL;
