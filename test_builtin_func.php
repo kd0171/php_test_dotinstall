@@ -505,6 +505,21 @@ while (($item = readdir($dp)) !== false) {
   echo $item . PHP_EOL;
 }
 
-  echo "：　". PHP_EOL;
+  echo "ディレクトリにあるパスを読み出す：　". PHP_EOL;
+//   glob：パスを渡して、見つかった結果を配列で返す
+//   ワイルドカードを使って data/*.txt
+  foreach (glob('data/*.txt') as $item) {
+    echo $item . PHP_EOL; // data/jiro.txt
+    // ファイル名だけを取得したい場合
+    echo basename($item) . PHP_EOL; // jiro.txt 
+  }
+
+
+
+
+
   echo "：　". PHP_EOL;
 
+  echo "：　". PHP_EOL;
+  echo "：　". PHP_EOL;
+  echo "：　". PHP_EOL;
