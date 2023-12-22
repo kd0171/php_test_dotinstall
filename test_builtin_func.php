@@ -201,7 +201,10 @@ print_r($scores);
 shuffle($scores);
 print_r($scores);
 
-// ランダムに要素を取得。元配列は無変更新しい配列をki-形式で返す
+// ランダムに要素を取得。元配列は無変更新しい配列をインデックス同士のキー形式で返す
+    // キー形式：Array ( [0] => 0 [1] => 3 )：picked[1]は3を返し、それがscoresのインデックスとして機能
+$scores = [40, 50, 20, 30];    
 $picked = array_rand($scores, 2);
+print_r($picked);
 echo $scores[$picked[0]] . PHP_EOL;
 echo $scores[$picked[1]] . PHP_EOL;
