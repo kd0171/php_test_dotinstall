@@ -126,7 +126,26 @@ echo M_PI . PHP_EOL;
 echo M_SQRT2 . PHP_EOL;
 
 
+$scores = [30, 40, 50];
+// 先頭に要素を追加
+array_unshift($scores, 10, 20);
+print_r($scores);
 
+// 末尾に追加
+array_push($scores, 60, 70);
+print_r($scores);
+
+// ひとつだけの要素を末尾に追加するには添字なしで値を代入する方法
+$scores[] = 80;
+print_r($scores);
+
+// 先頭から要素を削除
+array_shift($scores);
+print_r($scores);
+
+// 末尾から要素を削除
+array_pop($scores);
+print_r($scores);
 
 
 
