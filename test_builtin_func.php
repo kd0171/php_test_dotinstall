@@ -299,6 +299,7 @@ print_r($evenNumbers);
 
 
 // 配列のキーや値を操作
+echo " 配列のキーや値を操作：　". PHP_EOL;
 $scores = [
     'taguchi' => 80,
     'hayashi' => 70,
@@ -308,7 +309,7 @@ $scores = [
 // キーを取り出す
   $keys = array_keys($scores);
   print_r($keys);
-//   値を取り出す
+// 値を取り出す
   $values = array_values(($scores));
   print_r($values);
   
@@ -325,15 +326,59 @@ $scores = [
   echo array_search(70, $scores) . PHP_EOL;
 
 
+// キーを保持したまま値でソート
+  echo "キーを保持したまま値でソート：　". PHP_EOL;
+  $scores = [
+    'taguchi' => 80,
+    'hayashi' => 70,
+    'kikuchi' => 60,
+  ];
+  
+  sort($scores);
+  print_r($scores); //Array ( [0] => 60 [1] => 70 [2] => 80 ) 
+  rsort($scores);
+  print_r($scores); //Array ( [0] => 80 [1] => 70 [2] => 60 )
+  
+  $scores = [
+    'taguchi' => 80,
+    'hayashi' => 70,
+    'kikuchi' => 60,
+  ];
+  asort($scores);
+  print_r($scores); // Array ( [kikuchi] => 60 [hayashi] => 70 [taguchi] => 80 )
+  arsort($scores);
+  print_r($scores); // Array ( [taguchi] => 80 [hayashi] => 70 [kikuchi] => 60 )
+  
+//   キーのほうでソートしたい
+$scores = [
+    'taguchi' => 80,
+    'hayashi' => 70,
+    'kikuchi' => 60,
+  ];
+  ksort($scores);
+  print_r($scores); // Array ( [hayashi] => 70 [kikuchi] => 60 [taguchi] => 80 )
+  krsort($scores);
+  print_r($scores); // Array ( [taguchi] => 80 [kikuchi] => 60 [hayashi] => 70 ) 
 
 
 
 
+  echo "：　". PHP_EOL;
 
 
+  echo "：　". PHP_EOL;
 
 
+  echo "：　". PHP_EOL;
 
 
+  echo "：　". PHP_EOL;
 
+
+  echo "：　". PHP_EOL;
+
+  echo "：　". PHP_EOL;
+  echo "：　". PHP_EOL;
+  echo "：　". PHP_EOL;
+  echo "：　". PHP_EOL;
 
