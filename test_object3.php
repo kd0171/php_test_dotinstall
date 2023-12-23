@@ -91,6 +91,15 @@ $posts[1] = new Post('hello again');
 $posts[2] = new SponsoredPost('Sub: hello hello', 'dotinstall');
 $posts[3] = new PremiumPost('hello there', 300);
 
+// インターフェイスのデータ型を使用
+function processLikeable(LikeInterface $likable)
+{
+  $likable->like();
+}
+
+processLikeable($posts[0]);
+processLikeable($posts[3]);
+
 $posts[0]->like();
 $posts[3]->like();
 
