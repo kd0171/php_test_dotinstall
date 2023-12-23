@@ -2,13 +2,15 @@
 
 class Post // 親クラス Superクラス
 {
-  private $text;
+// クラスを継承したとしても、親クラスでprivate にしているプロパティは子クラスでは使えない
+protected $text;
 
   public function __construct($text)
   {
     $this->text = $text;
   }
 
+//   final public function show()　オーバーライドしてほしくないメソッドにはfinal
   public function show()
   {
     printf('%s' . PHP_EOL, $this->text);
@@ -30,6 +32,12 @@ class SponsoredPost extends Post // 子クラス Subクラス
     public function showSponsor()
     {
       printf('%s' . PHP_EOL, $this->sponsor);
+    }
+
+        // override
+    public function show()
+    {
+        printf('%s by %s' . PHP_EOL, $this->text, $this->sponsor);
     }
   }
 
