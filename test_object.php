@@ -1,5 +1,20 @@
 <?php
 
+// クラス
+class Post
+{
+  // プロパティ
+  public $text;
+  public $likes;
+  
+  // メソッド
+  public function show()
+  {
+    // クラス内の変数へのアクセスは$this->変数のように書く
+    printf('%s (%d)' . PHP_EOL, $this->text, $this->likes);
+  }
+}
+
 echo "投稿データ作成：　". PHP_EOL;
 $posts = [];
 $posts[0] = ['text' => 'hello', 'likes' => 0];
