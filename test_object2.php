@@ -5,8 +5,12 @@
 class Post
 {
   private string $text;
-  //static：インスタンス化不要
+  // static：インスタンス化不要
   private static $count = 0;
+  // クラスに紐付いた定数を設定
+  // private const VERSION = 0.1;
+  public const VERSION = 0.1; // 定数は変更されることがないのでpublicとして良い
+
 
   public function __construct(string $text)
   {
@@ -24,6 +28,7 @@ class Post
   public static function showInfo()
   {
     printf('Instance Count: %d' . PHP_EOL, self::$count);
+    printf('Version: %.1f' . PHP_EOL, self::VERSION);
   }
 }
 
@@ -37,3 +42,6 @@ $posts[1]->show();
 
 // staticなメソッドの使用
 Post::showInfo();
+
+// publicな定数は直接呼び出すことができる（クラス名に対して :: で呼び出す）
+echo Post::VERSION . PHP_EOL;
