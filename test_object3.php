@@ -1,4 +1,10 @@
 <?php
+// インターフェイス：PHPでは複数の親クラスを持つことはできないので、抽象メソッドからなるインターフェイスを用いる（継承関係は不要）
+interface LikeInterface
+{
+  public function like();
+}
+
 
 abstract class BasePost
 {
@@ -13,14 +19,20 @@ abstract class BasePost
   abstract public function show();
 }
 
-class Post extends BasePost // 親クラス Superクラス
+class Post extends BasePost  implements LikeInterface// 親クラス Superクラス
 {
+    private $likes = 0;
 
+    public function like()
+    {
+        $this->likes++;
+    }
+  
 //   final public function show()　オーバーライドしてほしくないメソッドにはfinal
-  public function show()
-  {
-    printf('%s' . PHP_EOL, $this->text);
-  }
+    public function show()
+    {
+        printf('%s (%d)' . PHP_EOL, $this->text, $this->likes);
+    }
 }
 
 // class SponsoredPost extends Post // 子クラス Subクラス
@@ -50,9 +62,15 @@ class SponsoredPost extends BasePost
 
 
 
-class PremiumPost extends BasePost
+class PremiumPost extends BasePost implements LikeInterface
 {
   private $price;
+  private $likes = 0;
+  
+  public function like()
+  {
+    $this->likes++;
+  }
 
   public function __construct($text, $price)
   {
@@ -62,7 +80,7 @@ class PremiumPost extends BasePost
 
   public function show()
   {
-    printf('%s [%d JPY]' . PHP_EOL, $this->text, $this->price);
+    printf('%s (%d) [%d JPY]' . PHP_EOL, $this->text, $this->likes, $this->price);
   }
 }
 
@@ -72,6 +90,9 @@ $posts[0] = new Post('hello');
 $posts[1] = new Post('hello again');
 $posts[2] = new SponsoredPost('Sub: hello hello', 'dotinstall');
 $posts[3] = new PremiumPost('hello there', 300);
+
+$posts[0]->like();
+$posts[3]->like();
 
 // SponsoredPost クラスは Post クラスを継承したので Post 型としても扱える
 function processPost(BasePost $post)
