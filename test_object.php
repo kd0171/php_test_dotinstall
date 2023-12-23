@@ -22,30 +22,63 @@ show($postsalt[1]);
 class Post
 {
   // プロパティ
-  public $text;
-  public $likes;
-  
+  private $text;
+  private $likes = 0; // クラスの外からはアクセスできない
+
+
+  // コンストラクタ
+//   public function __construct($text, $likes) プロパティで初期化
+  public function __construct($text)
+  {
+    $this->text = $text;
+    // $this->likes = $likes;
+  }
+
   // メソッド
   public function show()
   {
     // クラス内の変数へのアクセスは$this->変数のように書く
     printf('%s (%d)' . PHP_EOL, $this->text, $this->likes);
   }
+
+  public function like()
+  {
+    $this->likes++;
+    
+    if ($this->likes > 100) {
+      $this->likes = 100;
+    }
+  }
+
 }
 
 $posts = [];
 // $posts[0] = ['text' => 'hello', 'likes' => 0];
-$posts[0] = new Post();
-$posts[0]->text = 'hello';
-$posts[0]->likes = 0;
+// $posts[0] = new Post('hello', 0);
+$posts[0] = new Post('hello');  //0の部分は初期化
+/*  コンストラクタを用いて直接代入できるように書き換え 
+    $posts[0]->text = 'hello';
+    $posts[0]->likes = 0;
+*/
 // $posts[1] = ['text' => 'hello again', 'likes' => 0];
-$posts[1] = new Post();
-$posts[1]->text = 'hello again';
-$posts[1]->likes = 0;
-
+// $posts[1] = new Post('hello again', 0);
+$posts[1] = new Post('hello again');  //0の部分は初期化
+/*  コンストラクタを用いて直接代入できるように書き換え 
+    $posts[1]->text = 'hello again';
+    $posts[1]->likes = 0;
+*/
 // show($posts[0]);
 // show($posts[1]);
+
+// $posts[0]->likes++;
+// $posts[0]->likes = -100; // アクセス修飾子はprivateなので変更できない
+
 $posts[0]->show();
+
+// likeメソッドを用いる
+$posts[0]->like();
+$posts[0]->show();
+
 $posts[1]->show();
 
 
