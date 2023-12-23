@@ -29,10 +29,10 @@ class SponsoredPost extends Post // 子クラス Subクラス
       $this->sponsor = $sponsor;
     }
     
-    public function showSponsor()
-    {
-      printf('%s' . PHP_EOL, $this->sponsor);
-    }
+    // public function showSponsor()
+    // {
+    //   printf('%s' . PHP_EOL, $this->sponsor);
+    // }
 
         // override
     public function show()
@@ -46,10 +46,21 @@ $posts[0] = new Post('hello');
 $posts[1] = new Post('hello again');
 $posts[2] = new SponsoredPost('Sub: hello hello', 'dotinstall');
 
-$posts[0]->show();
-$posts[1]->show();
-$posts[2]->show();
-$posts[2]->showSponsor();
+
+// SponsoredPost クラスは Post クラスを継承したので Post 型としても扱える
+function processPost(Post $post)
+{
+  $post->show();
+}
+
+foreach ($posts as $post) {
+    processPost($post);
+}
+
+// $posts[0]->show();
+// $posts[1]->show();
+// $posts[2]->show();
+// $posts[2]->showSponsor();
 
 
 
