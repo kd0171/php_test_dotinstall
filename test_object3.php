@@ -1,14 +1,20 @@
 <?php
 
-class Post // 親クラス Superクラス
+abstract class BasePost
 {
-// クラスを継承したとしても、親クラスでprivate にしているプロパティは子クラスでは使えない
-protected $text;
+    // クラスを継承したとしても、親クラスでprivate にしているプロパティは子クラスでは使えない
+    protected $text;
 
-  public function __construct($text)
-  {
-    $this->text = $text;
-  }
+    public function __construct($text)
+    {
+      $this->text = $text;
+    }
+// 必ず子クラスで定義しなければならないメソッド
+  abstract public function show();
+}
+
+class Post extends BasePost // 親クラス Superクラス
+{
 
 //   final public function show()　オーバーライドしてほしくないメソッドにはfinal
   public function show()
@@ -17,7 +23,8 @@ protected $text;
   }
 }
 
-class SponsoredPost extends Post // 子クラス Subクラス
+// class SponsoredPost extends Post // 子クラス Subクラス
+class SponsoredPost extends BasePost
 {
     // 子クラスの独自のプロパティ
     private $sponsor;
@@ -48,7 +55,7 @@ $posts[2] = new SponsoredPost('Sub: hello hello', 'dotinstall');
 
 
 // SponsoredPost クラスは Post クラスを継承したので Post 型としても扱える
-function processPost(Post $post)
+function processPost(BasePost $post)
 {
   $post->show();
 }
